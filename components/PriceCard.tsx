@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Switch from "@mui/material/Switch";
 
 const PriceCard = () => {
   const mobile = useMediaQuery("(min-width: 600px)");
@@ -27,73 +28,89 @@ const PriceCard = () => {
   ];
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: mobile ? "row" : "column",
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: "4rem",
-        backgroundColor: "blue",
-      }}
-    >
-      {bundles.map((bundle) => {
-        return (
-          <Box
-            key={bundle.deal}
-            sx={{
-              backgroundColor: "pink",
-
-              padding: "2rem",
-              borderRadius: "1rem",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-
-              "&:hover": {
-                scale: "1.15",
-              },
-            }}
-          >
-            <Typography sx={{ marginBottom: "2rem", fontWeight: "bold" }}>
-              {bundle.deal}
-            </Typography>
-            <Typography variant="h1" sx={{ marginBottom: "2rem" }}>
-              ${bundle.price}
-            </Typography>
-
-            {bundle.details.map((detail) => {
-              return (
-                <Typography
-                  sx={{
-                    margin: ".5rem 0",
-                    fontWeight: "bold",
-                    fontSize: ".75rem",
-                  }}
-                  key={detail}
-                >
-                  {detail}
-                </Typography>
-              );
-            })}
-            <Button
+    <Box>
+      <Box
+        className="switch"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Typography>Annually</Typography>
+        <Switch defaultChecked />
+        <Typography>Monthly</Typography>
+      </Box>
+      <Box
+        className=" package container"
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "4rem",
+          backgroundColor: "blue",
+          flexDirection: mobile ? "row" : "column",
+        }}
+      >
+        {bundles.map((bundle) => {
+          return (
+            <Box
+              className="text"
+              key={bundle.deal}
               sx={{
-                backgroundColor: "yellow",
-                borderRadius: ".5rem",
-                width: "100%",
-                margin: "1rem 0",
-                fontWeight: "bold",
-                letterSpacing: ".08rem",
-                fontSize: ".75rem",
+                backgroundColor: "pink",
+
+                padding: "2rem",
+                borderRadius: "1rem",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+
+                "&:hover": {
+                  scale: "1.15",
+                },
               }}
             >
-              {" "}
-              LEARN MORE{" "}
-            </Button>
-          </Box>
-        );
-      })}
+              <Typography sx={{ marginBottom: "2rem", fontWeight: "bold" }}>
+                {bundle.deal}
+              </Typography>
+              <Typography variant="h1" sx={{ marginBottom: "2rem" }}>
+                ${bundle.price}
+              </Typography>
+
+              {bundle.details.map((detail) => {
+                return (
+                  <Typography
+                    sx={{
+                      margin: ".5rem 0",
+                      fontWeight: "bold",
+                      fontSize: ".75rem",
+                    }}
+                    key={detail}
+                  >
+                    {detail}
+                  </Typography>
+                );
+              })}
+              <Button
+                sx={{
+                  backgroundColor: "yellow",
+                  borderRadius: ".5rem",
+                  width: "100%",
+                  margin: "1rem 0",
+                  fontWeight: "bold",
+                  letterSpacing: ".08rem",
+                  fontSize: ".75rem",
+                }}
+              >
+                {" "}
+                LEARN MORE{" "}
+              </Button>
+            </Box>
+          );
+        })}
+      </Box>
     </Box>
   );
 };
