@@ -1,9 +1,12 @@
+"use client";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Switch from "@mui/material/Switch";
 import React from "react";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Header = () => {
+  const mobile = useMediaQuery("(min-width: 600px)");
   return (
     <Box
       sx={{
@@ -12,6 +15,7 @@ const Header = () => {
         justifyContent: "center",
         alignItems: "center",
         marginTop: "4rem",
+        overflow: "none",
       }}
     >
       <Typography variant="h1">Our Pricing</Typography>

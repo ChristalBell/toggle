@@ -3,9 +3,11 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { types } from "util";
+import { useState } from "react";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const PriceCard = () => {
+  const mobile = useMediaQuery("(min-width: 600px)");
   const bundles = [
     {
       deal: "Basic",
@@ -23,11 +25,14 @@ const PriceCard = () => {
       details: ["2TB Storage", "10 Users Allowed", "Send up to 20GB"],
     },
   ];
+
   return (
     <Box
       sx={{
         display: "flex",
+        flexDirection: mobile ? "row" : "column",
         justifyContent: "center",
+        alignItems: "center",
         marginTop: "4rem",
         backgroundColor: "blue",
       }}
@@ -38,7 +43,7 @@ const PriceCard = () => {
             key={bundle.deal}
             sx={{
               backgroundColor: "pink",
-              width: "15%",
+
               padding: "2rem",
               borderRadius: "1rem",
               display: "flex",
