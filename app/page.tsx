@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import PriceCard from "@/components/PriceCard";
+import Container from "@/components/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import React from "react";
@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <Box>
       <Header />
-      <PriceCard />
+      <Container />
     </Box>
   );
 };
