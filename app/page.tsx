@@ -7,7 +7,12 @@ import { COLORS } from "@/styles/colors";
 
 const Home = () => {
   return (
-    <Box sx={{ backgroundColor: "rgb(238, 251, 255)", height: "100vh" }}>
+    <Box
+      sx={{
+        backgroundColor: "rgb(238, 251, 255)",
+        height: "100vh",
+      }}
+    >
       <Header />
       <Container />
     </Box>
