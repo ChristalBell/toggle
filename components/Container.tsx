@@ -7,6 +7,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Switch from "@mui/material/Switch";
 import PriceCard from "./PriceCard";
 import data from "../data.json";
+import { COLORS } from "@/styles/colors";
 
 const Container = () => {
   const mobile = useMediaQuery("(min-width: 600px)");
@@ -21,7 +22,6 @@ const Container = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          overflow: "hidden",
         }}
       >
         <Typography>Annually</Typography>
@@ -39,11 +39,12 @@ const Container = () => {
       </Box>
       <Box
         sx={{
+          backgroundColor: "rgb(238, 251, 255)",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           marginTop: "4rem",
-          backgroundColor: "blue",
+
           flexDirection: mobile ? "row" : "column",
         }}
       >

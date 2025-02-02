@@ -5,16 +5,18 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Button from "@mui/material/Button";
+import { COLORS } from "../styles/colors";
 
 const PriceCard = ({ bundles, defaultPrice }: any) => {
   const mobile = useMediaQuery("(min-width: 600px)");
-  console.log(bundles);
+
   return (
     <Box
       className="text"
       key={bundles.deal}
       sx={{
-        backgroundColor: "pink",
+        backgroundColor: "white",
+        boxShadow: 3,
         padding: "2rem",
         borderRadius: "1rem",
         display: "flex",
@@ -24,7 +26,7 @@ const PriceCard = ({ bundles, defaultPrice }: any) => {
 
         "&:hover": {
           scale: "1.15",
-          backgroundColor: "orange",
+          backgroundImage: `linear-gradient(0.5turn,${COLORS.lightBlue},${COLORS.darkBlue})`,
           color: "white",
         },
       }}
@@ -32,19 +34,12 @@ const PriceCard = ({ bundles, defaultPrice }: any) => {
       <Typography sx={{ marginBottom: "2rem", fontWeight: "bold" }}>
         {bundles.deal}
       </Typography>
-      <Typography
-        id="month"
-        variant="h1"
-        sx={{ marginBottom: "2rem", display: "block" }}
-      >
+      <Typography id="month" variant="h1" sx={{ marginBottom: "2rem" }}>
         $
         {defaultPrice === "Monthly"
           ? bundles.priceType.monthlyPrice
           : bundles.priceType.annualPrice}
       </Typography>
-      {/* <Typography id="year" variant="h1" sx={{ marginBottom: "2rem" }}>
-        {annualPrice}
-      </Typography> */}
 
       {bundles.details.map((detail: any) => {
         return (
@@ -62,6 +57,7 @@ const PriceCard = ({ bundles, defaultPrice }: any) => {
                 margin: ".5rem 0",
                 fontWeight: "bold",
                 fontSize: ".75rem",
+                color: COLORS.grey,
               }}
             >
               {detail}
@@ -72,13 +68,19 @@ const PriceCard = ({ bundles, defaultPrice }: any) => {
       })}
       <Button
         sx={{
-          backgroundColor: "yellow",
+          backgroundColor: COLORS.darkBlue,
+          color: COLORS.white,
           borderRadius: ".5rem",
           width: "100%",
           margin: "1rem 0",
           fontWeight: "bold",
           letterSpacing: ".08rem",
           fontSize: ".75rem",
+
+          "&:hover": {
+            backgroundColor: COLORS.white,
+            color: COLORS.darkBlue,
+          },
         }}
       >
         {" "}
