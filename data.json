@@ -1,17 +1,17 @@
 [
   {
     "deal": "Basic",
-    "priceType": [{ "monthlyPrice": "$19.99", "annualPrice": "$199.99" }],
+    "priceType": { "monthlyPrice": 19.99, "annualPrice": 199.99 },
     "details": ["500GB Storage", "2 Users Allowed", "Send up to 3GB"]
   },
   {
     "deal": "Professional",
-    "priceType": [{ "monthlyPrice": "$24.99", "annualPrice": "$299.99" }],
+    "priceType": { "monthlyPrice": 24.99, "annualPrice": 299.99 },
     "details": ["1TB Storage", "5 Users Allowed", "Send up to 10GB"]
   },
   {
     "deal": "Master",
-    "priceType": [{ "monthlyPrice": "$39.99", "annualPrice": "$399.99" }],
+    "priceType": { "monthlyPrice": 39.99, "annualPrice": 399.99 },
     "details": ["2TB Storage", "10 Users Allowed", "Send up to 20GB"]
   }
 ]

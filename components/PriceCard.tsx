@@ -6,24 +6,9 @@ import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Button from "@mui/material/Button";
 
-// interface Props {
-//   bundles: [
-//     {
-//       deal: string;
-//       priceType: {
-//         monthlyPrice: string;
-//         annualPrice: string;
-//       };
-//       details: string;
-//     }
-//   ];
-// }
-
-const PriceCard = ({ bundles }: any) => {
+const PriceCard = ({ bundles, defaultPrice }: any) => {
   const mobile = useMediaQuery("(min-width: 600px)");
-
-  // const [priceOption, setPriceOption] = useState({ bundle: { priceType } });
-
+  console.log(bundles);
   return (
     <Box
       className="text"
@@ -39,6 +24,8 @@ const PriceCard = ({ bundles }: any) => {
 
         "&:hover": {
           scale: "1.15",
+          backgroundColor: "orange",
+          color: "white",
         },
       }}
     >
@@ -50,7 +37,10 @@ const PriceCard = ({ bundles }: any) => {
         variant="h1"
         sx={{ marginBottom: "2rem", display: "block" }}
       >
-        {bundles.priceType.monthlyPrice}
+        $
+        {defaultPrice === "Monthly"
+          ? bundles.priceType.monthlyPrice
+          : bundles.priceType.annualPrice}
       </Typography>
       {/* <Typography id="year" variant="h1" sx={{ marginBottom: "2rem" }}>
         {annualPrice}
@@ -58,16 +48,26 @@ const PriceCard = ({ bundles }: any) => {
 
       {bundles.details.map((detail: any) => {
         return (
-          <Typography
-            sx={{
-              margin: ".5rem 0",
-              fontWeight: "bold",
-              fontSize: ".75rem",
-            }}
+          <Box
             key={detail}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
           >
-            {detail}
-          </Typography>
+            <Typography
+              sx={{
+                margin: ".5rem 0",
+                fontWeight: "bold",
+                fontSize: ".75rem",
+              }}
+            >
+              {detail}
+            </Typography>
+            <hr style={{ width: "8rem" }}></hr>
+          </Box>
         );
       })}
       <Button

@@ -11,6 +11,8 @@ import data from "../data.json";
 const Container = () => {
   const mobile = useMediaQuery("(min-width: 600px)");
   const [bundles, setBundles] = useState(data);
+  const [defaultPrice, setDefaultPrice] = useState("Monthly");
+
   return (
     <Box>
       <Box
@@ -19,10 +21,20 @@ const Container = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          overflow: "hidden",
         }}
       >
         <Typography>Annually</Typography>
-        <Switch defaultChecked />
+        <Switch
+          checked={defaultPrice === "Monthly"}
+          onChange={() => {
+            if (defaultPrice === "Annually") {
+              setDefaultPrice("Monthly");
+            } else {
+              setDefaultPrice("Annually");
+            }
+          }}
+        />
         <Typography>Monthly</Typography>
       </Box>
       <Box
@@ -36,10 +48,15 @@ const Container = () => {
         }}
       >
         {bundles.map((bundle) => {
-          return <PriceCard key={bundle.deal} bundles={bundle} />;
+          return (
+            <PriceCard
+              key={bundle.deal}
+              bundles={bundle}
+              defaultPrice={defaultPrice}
+            />
+          );
         })}
       </Box>
-      {/* <PriceCard /> */}
     </Box>
   );
 };
